@@ -1,7 +1,7 @@
 # Nothing Music Community
 <img src="https://github.com/PreyK/Nothing-Music-Community/assets/1968543/a28c8794-b710-4ebd-871c-bc64a7f23a47" height="500"><img src="https://github.com/PreyK/Nothing-Music-Community/assets/1968543/4138183e-1fdd-4f94-a255-5c936207996a" height="500"><img src="https://github.com/PreyK/Nothing-Music-Community/assets/1968543/1b330caf-832d-40e6-98d8-a819e1c6cc94" height="500">
 
-[Nothing](https://nothing.tech/) style minimal music player app for Android based a [community-projects](https://discord.com/channels/930878214237200394/1060597648475836497/1060597648475836497) design by [@alkids_art](https://bento.me/alkid).
+[Nothing](https://nothing.tech/) style minimal music player app for Android based on design by [Alkid Shuli](https://bento.me/alkid).
 
 Currently pretty barebones, all it does is plays your music in your /Music directory and looks cool.
 
