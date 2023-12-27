@@ -42,7 +42,7 @@ You can set it in most modern operating systems.
 
 
 ### How to build
-For now your phone and your server needs to be on the same network
+Some basic info on how to build
 
 1. Get set up with [fuseopen](https://fuseopen.com/docs/basics/supported-platforms.html). I recommend [fuse X studio](https://fuse-x.com/) because it's by far the easiest way to grab everything in one installer.
 2. Open the project (where the .unoproject is located) in fuse X.
