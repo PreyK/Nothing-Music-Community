@@ -15,6 +15,9 @@ Made with [fuseopen](https://fuseopen.com/) in [UX markup](https://fuseopen.com/
 - [x] Play, Pause, Seek
 - [x] Background playback
 - [x] Audio vaweform visualization (currently just randomized bars)
+- [ ] Shiffle
+- [ ] Repeat
+- [ ] Next/Prev
 - [ ] Playlists
 - [ ] Albums
 - [ ] Android media notification (play, pause etc from the lock screen)
