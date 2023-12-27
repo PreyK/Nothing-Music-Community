@@ -58,5 +58,3 @@ It uses [FuseCloud](https://github.com/fusetools/FuseCloud)'s [Streaming Player]
 * [js]() Contains the "frontend/business logic" javascript code.
 * [Native]() Contains the native platform specific code for Android, iOS and a dummy for preview
 * .UX is the [UX Markup] for the layout
-
-### License stuff
