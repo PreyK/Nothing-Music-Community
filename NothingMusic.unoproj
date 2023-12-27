@@ -1,0 +1,36 @@
+{
+  "Packages": [
+    "Fuse",
+    "FuseJS",
+    "Fuse.Android.Permissions",
+    "Fuse.ImageTools"
+  ],
+  "Projects": [],"Android": {
+    "Architectures": {
+      "Debug": [
+        "arm64-v8a"
+      ],
+      "Release": [
+        "arm64-v8a"
+      ]
+    },
+    "SDK": {"TargetVersion": 31},
+    "Package": "com.preyk.nmusic"
+  },
+  "Mobile": {
+    "Orientations": "Portrait"
+  },
+  "Includes": [
+		"Native/iOS/ObserverProxy.h:ObjCHeader:iOS",
+		"Native/iOS/ObserverProxy.mm:ObjCSource:iOS",
+		"Native/Android/AndroidPlayerState.java:Java:Android",
+		"Native/Android/BackgroundAudioPlayer.java:Java:Android",
+		"Native/Android/BackgroundAudioService.java:Java:Android",
+		"Native/Android/Track.java:Java:Android",
+		"Native/Android/ArtworkMediaNotification.java:Java:Android",
+		"Native/Android/Logger.java:Java:Android",
+		"*",
+    "**.js:Bundle",
+    "*.jpg:Bundle"
+	]
+}

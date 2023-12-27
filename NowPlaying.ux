@@ -1,0 +1,106 @@
+<Page ux:Class="NowPlaying">
+    <Visual ux:Dependency="navBar" />
+    <AlternateRoot ParentNode="navBar">
+          <NavBarTitle>NOW PLAYING</NavBarTitle>
+        </AlternateRoot>
+    <StackPanel ContentAlignment="Bottom" Orientation="Vertical">
+        <Panel Dock="Top" Opacity="1" Width="100%" Height="400" ux:Name="albumart">
+            <Panel Margin="0, 0, 0, 0" MaxWidth="100%" MaxHeight="380">
+                <WhileTrue Value="{player.isPlaying}">
+                    <Change folder.Alignment="Top" />
+                    <Change vinyl.Alignment="Bottom" />
+                    <Change playtext.Value="" />
+                     <Spin Target="disc" Frequency="0.5" />
+                </WhileTrue>
+                <Rectangle Clicked="{player.TogglePlaying}" ux:Name="folder" CornerRadius="15" Color="#fff8" Alignment="HorizontalCenter" Width="290" Height="290">
+                    <LayoutAnimation>
+                        <Move Vector="1" RelativeTo="PositionChange" DurationBack="0.4" Easing="QuarticOut" EasingBack="QuarticIn" />
+                    </LayoutAnimation>
+                    <ImageFill File="{player.currentTrack.artworkUrl}" StretchMode="UniformToFill" WrapMode="ClampToEdge" />
+                    <Shadow />
+                    <Stroke Color="#FCFCFC" Width="1.5" Alignment="Outside" />
+                </Rectangle>
+                <Panel ux:Name="vinyl" Alignment="HorizontalCenter" Width="290" Height="290">
+                    <LayoutAnimation>
+                        <Move Vector="1" RelativeTo="PositionChange" DurationBack="0.4" Easing="QuarticOut" EasingBack="QuarticIn" />
+                    </LayoutAnimation>
+                    <Circle ux:Name="disc" Margin="10">
+                        <Circle Width="50%" Height="50%" Color="#000000" ux:Name="disclabel">
+                            <Stroke Width="1.5" Color="#FFFFFF" Alignment="Outside" />
+                        </Circle>
+                        <Circle StartAngleDegrees="95" LengthAngleDegrees="25" Width="76%" Height="76%" Color="#000000">
+                            <Stroke Width="2" Color="#FFFFFF" Alignment="Outside" />
+                        </Circle>
+                        <Circle StartAngleDegrees="90" LengthAngleDegrees="30" Width="85%" Height="85%" Color="#000000">
+                            <Stroke Width="2" Color="#FFFFFF" Alignment="Outside" />
+                        </Circle>
+
+                        <Circle StartAngleDegrees="275" LengthAngleDegrees="25" Width="76%" Height="76%" Color="#000000">
+                            <Stroke Width="2" Color="#FFFFFF" Alignment="Outside" />
+                        </Circle>
+                        <Circle StartAngleDegrees="270" LengthAngleDegrees="30" Width="85%" Height="85%" Color="#000000">
+                            <Stroke Width="2" Color="#FFFFFF" Alignment="Outside" />
+                        </Circle>
+                        <Stroke Width="1.5" Color="#FFFFFF" Alignment="Outside" />
+                    </Circle>
+                </Panel>
+            </Panel>
+        </Panel>
+        <Text Value="{player.currentTrack.name}" Alignment="Center" Font="robotoregular" TextColor="#FFFFFF" TextWrapping="Wrap" Margin="20, 10, 20, 10" TextAlignment="Center" FontSize="22" Padding="0, 0, 0, 0" ux:Name="songtitle" />
+        <Text Value="{player.currentTrack.artist}" Alignment="Center" Font="robotoregular" TextColor="#951418" TextWrapping="Wrap" Margin="0, 10, 0, 10" TextAlignment="Center" FontSize="17" Padding="0, 0, 0, 0" ux:Name="songartist" />
+        <!-- controls -->
+        <DockPanel Height="120" ux:Name="audiovis" Opacity="1" Margin="30, 0, 30, 0">
+            <Panel>
+                <!-- <Rectangle Clicked="{player.ProgressPlayDebug}" Width="30" Height="30" Color="#750808">
+                </Rectangle> -->
+              <RangeControl ProgressChanged="{player.SeekControl}" ux:Class="SeekControl" Padding="0, 0, 0, 0" Margin="0, 0, 0, 0" Opacity="0">
+                    <LinearRangeBehavior />
+                    <Panel Opacity="1">
+                        <Circle Anchor="50%,50%" ux:Name="thumb" Alignment="Left" Color="#ffffffee" Width="28" Height="28" Opacity="0" />
+                    </Panel>
+                    <Rectangle Layer="Background" Color="#aaaaaacc" CornerRadius="45" />
+                    <ProgressAnimation>
+                        <Move Target="thumb" X="1" RelativeTo="ParentSize" />
+                    </ProgressAnimation>
+                </RangeControl>
+
+                <SeekControl Margin="0, 0, 0, 0" />
+                <StackPanel Orientation="Horizontal" ItemSpacing="1" Alignment="Center">    
+                    <Each Items="{player.bars}">
+                        <Rectangle ux:Name="bar" Clicked="{clicked}" CornerRadius="1" Color="#3C3C3C" Width="1" Height="{height}">
+                            <WhileTrue Value="{isPlayed}">
+                                <Change bar.Color="#5A1010" />
+                            </WhileTrue>
+                        </Rectangle>
+                    </Each>
+                </StackPanel>
+                <Rectangle Color="#F80909" Opacity="0" />
+            </Panel>
+            <DockPanel Dock="Bottom">
+               <Text Dock="Left" Value="{player.displayProgress}" Font="robotoregular" TextColor="White" FontSize="12" />
+               <Text Dock="Right" Value="{player.displayDuration}" Font="robotoregular" TextColor="White" FontSize="12" />
+            </DockPanel>
+        </DockPanel>
+        <Panel Dock="Bottom">
+            <Rectangle Opacity="1" Alignment="Bottom" Width="100%" Padding="0, 0, 0, 0" Margin="0, 0, 0, 50" Height="90" ux:Name="buttons">
+                <StackPanel Orientation="Horizontal" Alignment="Center">
+                    <Panel Width="30" Height="30" Margin="20, 20, 20, 20" ux:Name="shuffle" Opacity="1">
+                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20"></Text>
+                    </Panel>
+                    <Panel Width="30" Height="30" Margin="20, 20, 20, 20" ux:Name="prev" Opacity="1">
+                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20"></Text>
+                    </Panel>
+                    <Rectangle Clicked="{player.TogglePlaying}" CornerRadius="30" Color="#13171a" Margin="0, 0, 0, 0" ux:Name="play" Width="90" Height="45" Opacity="1">
+                        <Text ux:Name="playtext" Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" FontSize="25"></Text>
+                    </Rectangle>
+                    <Panel Width="30" Height="30" Margin="20, 20, 20, 20" ux:Name="next" Opacity="1">
+                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20"></Text>
+                    </Panel>
+                    <Panel Width="30" Height="30" Margin="20, 20, 20, 20" ux:Name="repeat" Opacity="1">
+                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20"></Text>
+                    </Panel>
+                </StackPanel>
+            </Rectangle>
+        </Panel>
+    </StackPanel>
+</Page>

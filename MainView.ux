@@ -1,0 +1,61 @@
+<App Background="Black">
+  <Android.StatusBarConfig Color="#CB191900" IsVisible="True" />
+  <Font File="fonts/RobotoMono/static/RobotoMono-Thin.ttf" ux:Global="robotothin" />
+  <Font File="fonts/RobotoMono/static/RobotoMono-Regular.ttf" ux:Global="robotoregular" />
+  <Font File="fonts/fontawesome-webfont.ttf" ux:Global="fa" />
+  <Router ux:Name="router" />
+  <JavaScript File="js/MainView.js" />
+  <DockPanel Opacity="1">
+    <StackPanel Dock="Top" Background="0" Opacity="1">
+       <StatusBarBackground />
+      <Panel ux:Name="navBar" Dock="Top" Height="50">
+        <WhileCanGoBack>
+          <Panel ux:Name="backButton" Width="90" Height="50" Alignment="Left" Padding="0, 0, 0, 0" HitTestMode="LocalBounds" Opacity="1">
+            <DockPanel>
+              <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" FontSize="25"></Text>
+            </DockPanel>
+            <AddingAnimation>
+              <Change backButton.Opacity="0" Duration=".3" />
+            </AddingAnimation>
+            <RemovingAnimation>
+              <Change backButton.Opacity="0" Duration=".3" />
+            </RemovingAnimation>
+            <Clicked>
+              <GoBack />
+            </Clicked>
+          </Panel>
+        </WhileCanGoBack>
+      </Panel>
+    </StackPanel>
+    <BottomBarBackground Dock="Bottom" />
+    <Navigator DefaultPath="mainPage">
+      <Page ux:Template="mainPage">
+        <ScrollView>
+          <StackPanel ItemSpacing="7" Margin="7">
+            <Each Items="{files}">
+            
+              <DockPanel Color="Black" Clicked="{clicked}" Height="70" Margin="0, 0, 20, 0">
+                <Rectangle Layer="Background" CornerRadius="3">
+                </Rectangle>
+                <Rectangle CornerRadius="2" Dock="Left" Height="70" Width="70">
+                <ImageFill File="{artwork}" StretchMode="UniformToFill" WrapMode="ClampToEdge" />
+                </Rectangle>
+                <StackPanel Dock="Fill" Margin="0, 0, 20, 0" Alignment="VerticalCenter">
+                  <Text Value="{trackName}" Alignment="Left" Font="robotoregular" TextColor="#FFFFFF" TextWrapping="NoWrap" TextAlignment="Left" FontSize="22" Margin="10, 0, 0, 0" />
+                  <Text Value="{trackArtist}" Alignment="Left" Font="robotoregular" TextColor="#951418" TextWrapping="NoWrap" TextAlignment="Left" FontSize="17" Margin="10, 0, 0, 0" />
+                </StackPanel>
+                <Text ux:Name="playtext" Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" FontSize="25" Dock="Right"></Text>
+                
+              </DockPanel>
+            </Each>
+          </StackPanel>
+        </ScrollView>
+        <AlternateRoot ParentNode="navBar">
+          <NavBarTitle>TRACKS</NavBarTitle>
+        </AlternateRoot>
+      </Page>
+      <NowPlaying ux:Template="subPage" navBar="navBar" />
+    </Navigator>
+  </DockPanel>
+  <Image File="mockup/20230105_163409.jpg" StretchMode="UniformToFill" Opacity="0" />
+</App>
