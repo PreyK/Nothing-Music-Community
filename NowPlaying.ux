@@ -67,9 +67,9 @@
                 <SeekControl Margin="0, 0, 0, 0" />
                 <StackPanel Orientation="Horizontal" ItemSpacing="1" Alignment="Center">    
                     <Each Items="{player.bars}">
-                        <Rectangle ux:Name="bar" Clicked="{clicked}" CornerRadius="1" Color="#3C3C3C" Width="1" Height="{height}">
+                        <Rectangle ux:Name="bar" CornerRadius="1" Color="#3C3C3C" Width="1" Height="{height}">
                             <WhileTrue Value="{isPlayed}">
-                                <Change bar.Color="#5A1010" />
+                                <Change bar.Color="#951418" />
                             </WhileTrue>
                         </Rectangle>
                     </Each>
@@ -81,26 +81,27 @@
                <Text Dock="Right" Value="{player.displayDuration}" Font="robotoregular" TextColor="White" FontSize="12" />
             </DockPanel>
         </DockPanel>
-        <Panel Dock="Bottom">
-            <Rectangle Opacity="1" Alignment="Bottom" Width="100%" Padding="0, 0, 0, 0" Margin="0, 0, 0, 50" Height="90" ux:Name="buttons">
+        <Panel Dock="Bottom" Margin="0, 20, 0, 20">
+            <Rectangle Opacity="1" Alignment="Bottom" Width="100%" Padding="0, 0, 0, 0" Margin="0, 0, 0, 0" Height="90" ux:Name="buttons">
                 <StackPanel Orientation="Horizontal" Alignment="Center">
                     <Panel Width="30" Height="30" Margin="20, 20, 20, 20" ux:Name="shuffle" Opacity="1">
-                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20"></Text>
+                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20" Color="#3C3C3C"></Text>
                     </Panel>
                     <Panel Width="30" Height="30" Margin="20, 20, 20, 20" ux:Name="prev" Opacity="1">
-                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20"></Text>
+                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20" Color="#3C3C3C"></Text>
                     </Panel>
                     <Rectangle Clicked="{player.TogglePlaying}" CornerRadius="30" Color="#13171a" Margin="0, 0, 0, 0" ux:Name="play" Width="90" Height="45" Opacity="1">
                         <Text ux:Name="playtext" Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" FontSize="25"></Text>
                     </Rectangle>
                     <Panel Width="30" Height="30" Margin="20, 20, 20, 20" ux:Name="next" Opacity="1">
-                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20"></Text>
+                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20" Color="#3C3C3C"></Text>
                     </Panel>
                     <Panel Width="30" Height="30" Margin="20, 20, 20, 20" ux:Name="repeat" Opacity="1">
-                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20"></Text>
+                        <Text Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" Opacity="1" FontSize="20" Color="#3C3C3C"></Text>
                     </Panel>
                 </StackPanel>
             </Rectangle>
         </Panel>
+        <BottomBarBackground Dock="Bottom" />
     </StackPanel>
 </Page>

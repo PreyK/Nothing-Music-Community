@@ -49,6 +49,14 @@ function SeekControl(params) {
 	debug_log("seek to "+params["value"]/100);
 	seek(params["value"]/100);
 	//debug_log("seek "+params["value"]);
+
+	bars.forEach(function(bar) {
+		if(bar.idx < ((params["value"]/100)*SampleRate)) {
+			bar.isPlayed.value = true;
+		}else{
+			bar.isPlayed.value = false;
+		}
+	 });
 }
 
 function BarSeek(idx){

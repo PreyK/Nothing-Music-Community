@@ -5,6 +5,11 @@
   <Font File="fonts/fontawesome-webfont.ttf" ux:Global="fa" />
   <Router ux:Name="router" />
   <JavaScript File="js/MainView.js" />
+  <WhileTrue Value="{exceptionOcurred}">
+      <Panel Color="#000000" ux:Name="ExceptionDisplay">
+      <Text TextColor="#FFF" Value="{exception}" Alignment="Center" TextAlignment="Center" />
+    </Panel>
+    </WhileTrue>
   <DockPanel Opacity="1">
     <StackPanel Dock="Top" Background="0" Opacity="1">
        <StatusBarBackground />
@@ -33,7 +38,6 @@
         <ScrollView>
           <StackPanel ItemSpacing="7" Margin="7">
             <Each Items="{files}">
-            
               <DockPanel Color="Black" Clicked="{clicked}" Height="70" Margin="0, 0, 20, 0">
                 <Rectangle Layer="Background" CornerRadius="3">
                 </Rectangle>
@@ -45,7 +49,6 @@
                   <Text Value="{trackArtist}" Alignment="Left" Font="robotoregular" TextColor="#951418" TextWrapping="NoWrap" TextAlignment="Left" FontSize="17" Margin="10, 0, 0, 0" />
                 </StackPanel>
                 <Text ux:Name="playtext" Font="fa" Alignment="Center" TextAlignment="Center" TextColor="#FFFFFF" FontSize="25" Dock="Right"></Text>
-                
               </DockPanel>
             </Each>
           </StackPanel>

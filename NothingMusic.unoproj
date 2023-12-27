@@ -5,7 +5,17 @@
     "Fuse.Android.Permissions",
     "Fuse.ImageTools"
   ],
-  "Projects": [],"Android": {
+  "Projects": [],
+  "Android": {
+  "Icons": {
+            "LDPI": "mockup/icon.png",
+            "MDPI": "mockup/icon.png",
+            "HDPI": "mockup/icon.png",
+            "XHDPI": "mockup/icon.png",
+            "XXHDPI": "mockup/icon.png",
+            "XXXHDPI": "mockup/icon.png"
+        },
+   "ApplicationLabel": "Nothing Music Community",
     "Architectures": {
       "Debug": [
         "arm64-v8a"
